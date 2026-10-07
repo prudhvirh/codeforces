@@ -1,1 +1,1 @@
-# codeforces
+# Minimal C++ Codeforces Setup 
