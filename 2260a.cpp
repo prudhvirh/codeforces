@@ -11,7 +11,7 @@ void solve() {
     for(int i = 0; i < n; i++){
         int temp;
         cin >> temp;
-        if(first == 1){
+        if(i == 0){
             first = temp;
         }
         last = temp;
@@ -19,19 +19,11 @@ void solve() {
             cnt++;
         }
     }
-    if(first + last == 0){
-        cout << 0 << "\n";
+    if(cnt < 2){
+        cout << -1 << "\n";
         return;
     }
-    else if (first + last == 1){
-        if(cnt >= 1){
-            cout << 1 << "\n";
-            return;
-        }
-        else{
-            cout << -1 << "\n" ;
-        }
-    }
+    cout << first + last << "\n";
 
 }
 

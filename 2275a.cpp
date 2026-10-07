@@ -6,7 +6,16 @@
 using namespace std;
 
 void solve() {
-    
+    int x,y,r;
+    cin >> x >> y >> r;
+    for(int i = x-r; i <= x+r; i++) {
+        for(int j = y-r; j <= y+r; j++) {
+            if((i-x)*(i-x) + (j-y)*(j-y) == r*r) {
+                cout << i << " " << j << "\n";
+                return;
+            }
+        }
+    }
 }
 
 int main() {
@@ -20,7 +29,7 @@ int main() {
     #endif
 
     int t = 1;
-    // cin >> t;
+    cin >> t;
 
     while (t--) {
         solve();
