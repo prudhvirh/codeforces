@@ -6,11 +6,17 @@
 using namespace std;
 
 void solve() {
-    string s; cin >> s;
+    string s; int n; cin >> n;cin >> s;
     int ans = 0, temp = 0;
-    for(int i = 0; i < s.size(); i++){
-        
+    for(int i = 0; i < n;i++){
+        while(i + temp < n && s[i + temp] == '#'){
+            temp++;
+        }
+        ans = max(ans,temp);
+        i = i + temp;
+        temp = 0;
     }
+    cout << (ans + 1)/2 << "\n";
 }
 
 int main() {

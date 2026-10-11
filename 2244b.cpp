@@ -7,32 +7,22 @@ using namespace std;
 
 void solve() {
     int n; cin >> n;
-    stack<int> st;
-    int cnt = 0;
-    st.push(0);
-    int temp;
-    bool ans = true;
+    vector<long long> v(n,0);
     for(int i = 0; i < n; i++){
-        cin >> temp;
-        if(st.top() < temp){
-            cnt+=(temp - st.top() - 1);
-            st.push(st.top() + 1);
-        }
-        else if (st.top() >= temp + cnt){
-            ans = false;
-            continue;
-        }
-        else{
-            int val =  temp + cnt - st.top() - 1;
-            cnt = val;
-            st.push(st.top() + 1);
-        }   
+        cin >> v[i];
     }
-    if(ans == true){
-        cout << "YES\n";
-        return;
+    for(int i = 1; i < n; i++){
+        v[i]+=v[i - 1];
     }
-    cout << "NO\n";
+    for(int i = 1; i <= n; i++){
+        long long temp = (long long) (i) * (i + 1LL)/2;
+        if(v[i - 1] < temp){
+            cout << "NO\n";
+            return;
+        }
+    }
+
+    cout << "YES\n";
 
 
 }
