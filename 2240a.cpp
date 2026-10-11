@@ -7,16 +7,11 @@ using namespace std;
 
 void solve() {
     int n,k; cin >> n >> k;
-    if(n <= k){
-        cout << n << "\n";
-        return;
-    }
     int cnt = 0;
-    int temp;
     while(n > 0){
-        temp = (int)(log2(n/k + 1));
-        cnt+=k*temp;
-        n-=(k*(1<<temp) - k);
+        int temp = min(n,k);
+        cnt+=temp; 
+        n = (n - temp)/2;
     }
     cout << cnt << "\n";
 }
